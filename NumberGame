@@ -1,0 +1,65 @@
+
+import java.util.*;
+public class NumberGame {
+
+	public static void main(String[] args) 
+	{
+		int min = 1;
+		int max = 100;
+		int maxattempt = 10;
+		int score = 0;
+		
+		Scanner s = new Scanner(System.in);
+		Random rand = new Random();
+		System.out.println("Welcome To Number Guessing Game:");
+
+		do {
+		
+		int number = rand.nextInt(max) + 1;
+		int attempt=0;
+		 System.out.println("\nRound " + (score + 1) + ":");
+         System.out.println("Guess the number between " + min + " and " + max + ".");
+         System.out.println("You have " + maxattempt + " attempts.");
+         while(attempt<maxattempt)
+         {
+        	 System.out.println("Attempt" +(attempt+1) + ": Enter Your guess: ");
+		int guess = s.nextInt();
+		
+		
+		if(guess==number)
+		{
+			System.out.println("Congratulations! Your guess is correct!");
+			score++;
+			break;
+		}else if(guess<number)
+			{
+				System.out.println("Your Number is smaller:");
+			}
+		else 
+		{
+			System.out.println("Your Number is Larger:");
+		}
+		attempt++;
+		}
+         if(attempt==maxattempt)
+         {
+        	 System.out.println("You have run out of attempts. The number was: " + number);
+         }
+         System.out.println("If You Wont To Play The Game Again:yes/no");
+         
+         String playAgain = s.next();
+         if(!playAgain.equalsIgnoreCase("yes"))
+         {
+        	 break;
+         }
+		}while(true);
+		
+		System.out.println("Game Over. Your final score is: " + score);
+			
+}
+		
+		
+
+	}
+
+
